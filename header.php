@@ -36,7 +36,7 @@ if ( ! isset( $_SESSION ) ) {
 
     <body <?php body_class( 'off-canvas-wrapper' ); ?>>
 
-        <div id="wrapper" class = "off-canvass-wrapper-inner row" data-off-canvas-wrapper>
+        <div id="wrapper" class = "off-canvass-wrapper-inner" data-off-canvas-wrapper>
 
             <div class="off-canvas position-left nav-menu" id="offCanvasLeft" data-off-canvas>
 
@@ -60,7 +60,7 @@ if ( ! isset( $_SESSION ) ) {
 
                     <div class="top-bar">
 
-                        <div class="top-bar-left hide-for-small-only nav-menu">
+                        <div class="top-bar-section hide-for-small-only nav-menu">
                             <?php
                             wp_nav_menu( array(
                                 'container' => false,
@@ -86,7 +86,7 @@ if ( ! isset( $_SESSION ) ) {
                         
                         <?php if ( is_front_page() ) : ?>
                     
-                            <img class="header-logo" src="<?php echo get_theme_mod( '_logo_image', 'http://placehold.it/1200x312' ); ?>" />
+                            <img class="header-logo" src="<?php echo get_theme_mod( '_logo_image', 'http://placehold.it/1440x312' ); ?>" />
                         
                         <?php else : ?>
                         
@@ -94,10 +94,6 @@ if ( ! isset( $_SESSION ) ) {
                             </div>
                         
                         <?php endif; ?>
-                        
-                        <h1>
-                            <span class="description"><?php echo get_bloginfo( 'description' ); ?></span>
-                        </h1>
                         
                     </div>
 

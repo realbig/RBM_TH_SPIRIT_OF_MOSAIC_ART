@@ -83,7 +83,7 @@ function soma_customize_register( $wp_customize ) {
     );
     
     $wp_customize->add_setting( 'soma_logo_image', array(
-            'default'     => 'http://placehold.it/1200x312',
+            'default'     => 'http://placehold.it/1440x312',
             'transport'   => 'refresh',
         ) 
     );

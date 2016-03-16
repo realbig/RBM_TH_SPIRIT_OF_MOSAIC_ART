@@ -7,49 +7,7 @@
 $dark-color: #333;
 $light-color: #fff;
 
-// We use these as default colors throughout
-$primary-color: #BF67A3;
-$secondary-color: #7787A1;
-
-$dark-section: #3F3F3F;
-$light-section: #A5A5A5;
-
-$topbar-background: $light-section;
-$body-background: darken( $primary-color, 50% );
-$offcanvas-background: $body-background;
-
-@font-face {font-family: "Bradley Hand ITC TT";
-    src: url("http://db.onlinewebfonts.com/t/c8e367ed921e0b64eb40752644e1e353.eot");
-    src: url("http://db.onlinewebfonts.com/t/c8e367ed921e0b64eb40752644e1e353.eot?#iefix") format("embedded-opentype"),
-    url("http://db.onlinewebfonts.com/t/c8e367ed921e0b64eb40752644e1e353.woff") format("woff"),
-    url("http://db.onlinewebfonts.com/t/c8e367ed921e0b64eb40752644e1e353.ttf") format("truetype"),
-    url("http://db.onlinewebfonts.com/t/c8e367ed921e0b64eb40752644e1e353.svg#Bradley Hand ITC TT") format("svg");
-}
-
-@font-face {font-family: "Calibri";
-    src: url("http://db.onlinewebfonts.com/t/a78cfad3beb089a6ce86d4e280fa270b.eot");
-    src: url("http://db.onlinewebfonts.com/t/a78cfad3beb089a6ce86d4e280fa270b.eot?#iefix") format("embedded-opentype"),
-    url("http://db.onlinewebfonts.com/t/a78cfad3beb089a6ce86d4e280fa270b.woff") format("woff"),
-    url("http://db.onlinewebfonts.com/t/a78cfad3beb089a6ce86d4e280fa270b.ttf") format("truetype"),
-    url("http://db.onlinewebfonts.com/t/a78cfad3beb089a6ce86d4e280fa270b.svg#Calibri") format("svg");
-}
-
-// We use these to define default font stacks
-$font-family-sans-serif: 'Calibri', 'Candara', 'Segoe', 'Segoe UI', 'Optima', 'Arial', sans-serif;
-$font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
-$body-font-color: #222;
-
-$header-font-family: 'Bradley Hand ITC TT', cursive;
-$header-font-weight: 700; // Makes it bold. Since we're using local font-families this is the best way to go about it
-
-// We use these to control header font styles
-
-// We use these to style anchors
-$anchor-color: #603;
-$anchor-color-hover: scale-color($anchor-color, $lightness: -25%);
-
-$button-background: $anchor-color;
-$button-background-hover: $anchor-color-hover;
+$topbar-background: $black;
 
 @if lightness( $topbar-background ) < 50% {
 
