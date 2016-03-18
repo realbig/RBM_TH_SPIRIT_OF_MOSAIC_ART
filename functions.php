@@ -46,14 +46,7 @@ $soma_fonts = array(
 add_action( 'after_setup_theme', function () {
 
     // Image sizes
-    if ( ! empty( $soma_image_sizes ) ) {
-
-        foreach ( $soma_image_sizes as $ID => $size ) {
-            add_image_size( $ID, $size['width'], $size['height'], $size['crop'] );
-        }
-
-        add_filter( 'image_size_names_choose', '_meesdist_add_image_sizes' );
-    }
+    add_image_size( 'header-logo', 200, 350 );
 
     // Add theme support
     require_once __DIR__ . '/includes/theme-support.php';
@@ -62,6 +55,8 @@ add_action( 'after_setup_theme', function () {
     add_action( 'customize_register', 'soma_customize_register' );
 
     require_once __DIR__ . '/includes/class-foundation_nav_walker.php';
+    
+    require_once __DIR__ . '/includes/theme-functions.php';
 
     // Allow shortcodes in text widget
     add_filter( 'widget_text', 'do_shortcode' );
@@ -87,10 +82,22 @@ function soma_customize_register( $wp_customize ) {
             'transport'   => 'refresh',
         ) 
     );
-    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'soma_logo_image', array(
-        'label'        => __( 'Logo Banner', THEME_ID ),
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'soma_logo_image', array(
+        'label'        => __( 'Logo Image', THEME_ID ),
         'section'    => 'soma_customizer_section',
         'settings'   => 'soma_logo_image',
+        'mime_type' => 'image',
+    ) ) );
+    
+    $wp_customize->add_setting( 'soma_phone_number' , array(
+            'default'     => '(517) 867-5309',
+            'transport'   => 'refresh',
+        ) 
+    );
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'soma_phone_number', array(
+        'label'        => __( 'Phone Number', THEME_ID ),
+        'section'    => 'soma_customizer_section',
+        'settings'   => 'soma_phone_number',
     ) ) );
     
     $wp_customize->add_setting( 'soma_footer_columns' , array(
@@ -105,27 +112,6 @@ function soma_customize_register( $wp_customize ) {
         'settings'   => 'soma_footer_columns',
     ) ) );
     
-}
-
-/**
- * Adds support for custom image sizes.
- *
- * @since 0.1.0
- *
- * @param $sizes array The existing image sizes.
- *
- * @return array The new image sizes.
- */
-function _meesdist_add_image_sizes( $sizes ) {
-
-    global $soma_image_sizes;
-
-    $new_sizes = array();
-    foreach ( $soma_image_sizes as $ID => $size ) {
-        $new_sizes[ $ID ] = $size['title'];
-    }
-
-    return array_merge( $sizes, $new_sizes );
 }
 
 /**

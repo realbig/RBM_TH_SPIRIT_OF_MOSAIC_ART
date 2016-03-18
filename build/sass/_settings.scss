@@ -23,6 +23,9 @@ $topbar-background: $black;
 $titlebar-icon-color: $topbar-link-color;
 $titlebar-icon-color-hover: darken( $topbar-link-color, 20% );
 
+$thumbnail-border: solid 4px $black;
+$thumbnail-shadow: none;
+
 // Media query ranges
 $small-range: (0em, 40em);
 $medium-range: (40.063em, 64em);

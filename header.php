@@ -57,6 +57,38 @@ if ( ! isset( $_SESSION ) ) {
             <div class="off-canvas-content" data-off-canvas-content>
 
                 <header id="site-header">
+                    
+                    <div class="row">
+                        
+                        <div class="small-12 medium-5 medium-centered columns">
+                    
+                            <div class="row">
+                            
+                                <div class="small-12 medium-6 columns logo-container text-right">
+                                    <a href="<?php bloginfo( 'url' ); ?>" title = "<?php bloginfo( 'name' ); ?> - Home">
+                                        <?php echo wp_get_attachment_image( get_theme_mod( 'soma_logo_image', 1 ), 'header-logo', false, array( 'class' => 'header-logo thumbnail' ) ); ?>
+                                    </a>
+                                </div>
+                                
+                                <div class="small-12 medium-6 columns site-title-container">
+                                    <h2 class="site-title">
+                                        <a href="<?php bloginfo( 'url' ); ?>" title = "<?php bloginfo( 'name' ); ?> - Home">
+                                            <?php bloginfo( 'name' ); ?>
+                                        </a>
+                                    </h2>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="row">
+                                <div class="small-12 columns text-center">
+                                    <h5><?php echo get_phone_number_link( get_theme_mod( 'soma_phone_number', '(517) 867-5309' ), '', true ); ?></h5>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
 
                     <div class="top-bar">
 
@@ -80,21 +112,6 @@ if ( ! isset( $_SESSION ) ) {
 
                         </div>
 
-                    </div>
-                    
-                    <div class="header-logo-wrapper">
-                        
-                        <?php if ( is_front_page() ) : ?>
-                    
-                            <img class="header-logo" src="<?php echo get_theme_mod( '_logo_image', 'http://placehold.it/1440x312' ); ?>" />
-                        
-                        <?php else : ?>
-                        
-                            <div class="header-logo not-home" style="background-image: url('<?php echo get_theme_mod( 'soma_logo_image', 'http://placehold.it/1200x312' ); ?>')">
-                            </div>
-                        
-                        <?php endif; ?>
-                        
                     </div>
 
                 </header>

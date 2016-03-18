@@ -2749,8 +2749,8 @@ body {
     vertical-align: bottom; }
 
 .thumbnail {
-  border: solid 4px #fefefe;
-  box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.2);
+  border: solid 4px #0a0a0a;
+  box-shadow: none;
   display: inline-block;
   line-height: 0;
   max-width: 100%;
@@ -2958,8 +2958,8 @@ body {
   padding: 30px; }
 
 img[class*=" wp-image-"] {
-  border: solid 4px #fefefe;
-  box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.2);
+  border: solid 4px #0a0a0a;
+  box-shadow: none;
   display: inline-block;
   line-height: 0;
   max-width: 100%;
@@ -3073,6 +3073,18 @@ a img.aligncenter {
   width: auto;
   z-index: 100000;
   /* Above WP toolbar. */ }
+
+header#site-header {
+  padding-top: 1em; }
+  header#site-header .logo-container .header-logo:hover {
+    box-shadow: none; }
+  header#site-header .site-title-container {
+    position: relative;
+    min-height: 160px; }
+    header#site-header .site-title-container .site-title {
+      position: absolute;
+      bottom: 0;
+      margin-bottom: 0; }
 
 .top-bar .nav-menu {
   text-align: center; }

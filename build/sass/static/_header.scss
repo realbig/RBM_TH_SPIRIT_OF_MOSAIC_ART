@@ -1,0 +1,32 @@
+header#site-header {
+    
+    padding-top: 1em;
+    
+    .logo-container {
+    
+        .header-logo {
+
+            &:hover {
+                box-shadow: none;
+            }
+
+        }
+        
+    }
+    
+    .site-title-container {
+        
+        position: relative;
+        min-height: 160px;
+        
+        .site-title {
+            
+            position: absolute;
+            bottom: 0;
+            margin-bottom: 0;
+            
+        }
+        
+    }
+    
+}
