@@ -116,6 +116,31 @@ function soma_customize_register( $wp_customize ) {
         'active_callback' => 'is_front_page',
     ) ) );
     
+    $wp_customize->add_setting( 'soma_classes_button' , array(
+            'default'     => 'Accents & Classes',
+            'transport'   => 'refresh',
+        ) 
+    );
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'soma_classes_button', array(
+        'label'        => __( 'Accents & Classes Button Text', THEME_ID ),
+        'section'    => 'soma_customizer_section',
+        'settings'   => 'soma_classes_button',
+        'active_callback' => 'is_front_page',
+    ) ) );
+    
+    $wp_customize->add_setting( 'soma_classes_link' , array(
+            'default'     => '#',
+            'transport'   => 'refresh',
+        ) 
+    );
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'soma_classes_link', array(
+        'type' => 'url',
+        'label'        => __( 'Accents & Classes Button Link', THEME_ID ),
+        'section'    => 'soma_customizer_section',
+        'settings'   => 'soma_classes_link',
+        'active_callback' => 'is_front_page',
+    ) ) );
+    
     $wp_customize->add_setting( 'soma_gallery_image', array(
             'default'     => 1,
             'transport'   => 'refresh',
@@ -126,6 +151,43 @@ function soma_customize_register( $wp_customize ) {
         'section'    => 'soma_customizer_section',
         'settings'   => 'soma_gallery_image',
         'mime_type' => 'image',
+        'active_callback' => 'is_front_page',
+    ) ) );
+    
+    $wp_customize->add_setting( 'soma_gallery_text', array(
+            'default'     => '',
+            'transport'   => 'refresh',
+        ) 
+    );
+    $wp_customize->add_control( new Text_Editor_Custom_Control( $wp_customize, 'soma_gallery_text', array(
+        'label'        => __( 'Gallery Text', THEME_ID ),
+        'section'    => 'soma_customizer_section',
+        'settings'   => 'soma_gallery_text',
+        'active_callback' => 'is_front_page',
+    ) ) );
+    
+    $wp_customize->add_setting( 'soma_gallery_button' , array(
+            'default'     => 'Gallery',
+            'transport'   => 'refresh',
+        ) 
+    );
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'soma_gallery_button', array(
+        'label'        => __( 'Gallery Button Text', THEME_ID ),
+        'section'    => 'soma_customizer_section',
+        'settings'   => 'soma_gallery_button',
+        'active_callback' => 'is_front_page',
+    ) ) );
+    
+    $wp_customize->add_setting( 'soma_gallery_link' , array(
+            'default'     => '#',
+            'transport'   => 'refresh',
+        ) 
+    );
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'soma_gallery_link', array(
+        'type' => 'url',
+        'label'        => __( 'Gallery Button Link', THEME_ID ),
+        'section'    => 'soma_customizer_section',
+        'settings'   => 'soma_gallery_link',
         'active_callback' => 'is_front_page',
     ) ) );
     
@@ -276,7 +338,8 @@ add_action( 'wp_enqueue_scripts', function () {
 
 } );
 
-/**
+/** 
+ * Add JavaScript for Customizer Controls
  *
  * @since 0.1.0
  * 

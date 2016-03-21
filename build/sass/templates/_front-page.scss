@@ -3,10 +3,69 @@
 
 .home {
     
-    #classes-gallery {
+    #home-slider.realbig-slider-container {
+
+        .realbig-slider {
+
+            height: 300px;
+            padding-top: 0;
+            
+            .slide {
+                
+                .columns {
+                    height: 100%;
+                }
+                
+                .columns:first-of-type {
+                    border-right: 3px solid $primary-color;
+                }
+                
+                .columns.image {
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: 50% 50%;
+                }
+                
+                .columns.text {
+                    padding: 30px;
+                }
+                
+                @media #{$screen} and ( max-width: 40em ) {
+                    
+                    padding: 15px;
+                    
+                    .columns {
+                    
+                        padding: 0;
+                        
+                    }
+                    
+                }
+            
+                h2 {
+                    margin-top: 1em;
+                }
+            
+                .button {
+                    margin-top: 2em;
+                }
+                
+            }
         
+            .indicators {
+                bottom: -1.25em;
+            }
         
-        
+            @media #{$screen} and ( max-width: 40em ) {
+                
+                .indicators {
+                    display: none;
+                }
+                
+            }
+
+        }
+
     }
     
 }

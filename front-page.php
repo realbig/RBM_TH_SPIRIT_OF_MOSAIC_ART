@@ -27,34 +27,22 @@ the_post();
                     $first = true;
                     $index = 0;
                     while ( have_rows( 'soma_slides' ) ) : the_row();
-                    ?>
-
-                        <?php 
-                            $photo = get_sub_field( 'photo' );
-                            $url = get_sub_field( 'button_link' );
-                            // If the user forgot a protocol, we need to add it
-                            $has_http = preg_match_all( '/(http)?(s)?(:)?(\/\/)/', $url, $matches );
-                            if ( $has_http == 0 ) {
-                                $url = '//' . $url;
-                            }
-                            $image_alignment = array(
-                                'top-left' => '0% 0%',
-                                'top-center' => '50% 0%',
-                                'top-right' => '100% 0%',
-                                'center-left' => '0% 50%',
-                                'center-center' => '50% 50%',
-                                'center-right' => '100% 50%',
-                                'bottom-left' => '0% 100%',
-                                'bottom-center' => '50% 100%',
-                                'bottom-right' => '100% 100%',
-                            );
+                
+                        $photo = get_sub_field( 'photo' );
+                        $url = get_sub_field( 'button_link' );
+                        // If the user forgot a protocol, we need to add it
+                        $has_http = preg_match_all( '/(http)?(s)?(:)?(\/\/)/', $url, $matches );
+                        if ( $has_http == 0 ) {
+                            $url = '//' . $url;
+                        }
+                
                         ?>
 
                         <div class="slide<?php echo ( ( $first === true ) ? ' active' : '' ); ?>">
 
                             <?php if ( ( $index % 2 ) > 0 ) : ?>
 
-                            <div class="small-6 columns image" style="background-image: url( '<?php echo $photo['sizes']['medium']; ?> '); background-position: <?php echo $image_alignment[ get_sub_field( 'image_alignment' ) ]; ?>">
+                            <div class="small-6 columns image" style="background-image: url( '<?php echo $photo['sizes']['medium']; ?> '); background-color: <?php echo get_sub_field( 'photo_background' ); ?>">
                             </div>
 
                             <?php endif; ?>
@@ -66,7 +54,7 @@ the_post();
 
                             <?php if ( ( $index % 2 ) == 0 ) : ?>
 
-                            <div class="small-6 columns image" style="background-image: url( '<?php echo $photo['sizes']['medium']; ?> '); background-position: <?php echo $image_alignment[ get_sub_field( 'image_alignment' ) ]; ?>">
+                            <div class="small-6 columns image" style="background-image: url( '<?php echo $photo['sizes']['medium']; ?> '); background-color: <?php echo get_sub_field( 'photo_background' ); ?>">
                             </div>
 
                             <?php endif; ?>
@@ -76,6 +64,7 @@ the_post();
                     <?php
                         $first = false;
                         $index++;
+                
                     endwhile;
                 ?>
 
@@ -113,7 +102,12 @@ the_post();
             <?php echo wp_get_attachment_image( get_theme_mod( 'soma_classes_image', 1 ), 'medium', false, array( 'class' => 'thumbnail' ) ); ?>
             
         </div>
-
+        
+        <?php echo apply_filters( 'the_content', get_theme_mod( 'soma_classes_text', '' ) ); ?>
+        
+        <div class="text-center">
+            <a class="button" href="<?php echo get_theme_mod( 'soma_classes_link', '#' ); ?>"><?php echo get_theme_mod( 'soma_classes_button', 'Accents & Classes' ); ?></a>
+        </div>
 
     </div>
 
@@ -124,7 +118,12 @@ the_post();
             <?php echo wp_get_attachment_image( get_theme_mod( 'soma_gallery_image', 1 ), 'medium', false, array( 'class' => 'thumbnail' ) ); ?>
             
         </div>
-
+        
+        <?php echo apply_filters( 'the_content', get_theme_mod( 'soma_gallery_text', '' ) ); ?>
+        
+        <div class="text-center">
+            <a class="button" href="<?php echo get_theme_mod( 'soma_gallery_link', '#' ); ?>"><?php echo get_theme_mod( 'soma_gallery_button', 'Gallery' ); ?></a>
+        </div>
 
     </div>
 

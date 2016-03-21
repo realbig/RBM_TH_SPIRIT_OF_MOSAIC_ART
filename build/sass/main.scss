@@ -8,6 +8,7 @@ Version: 0.1.0
 
 // Vendor
 @import "../vendor/sass/normalize";
+@import "../vendor/sass/realbig-slider";
 
 // Dependencies
 @import "settings.scss";
@@ -39,6 +40,7 @@ Version: 0.1.0
 @import "global/foundation-extend";
 @import "global/base";
 @import "global/wp";
+@import "global/_realbig-slider";
 
 // Static
 @import "static/header";
