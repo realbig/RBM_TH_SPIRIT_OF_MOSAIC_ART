@@ -13,9 +13,9 @@ class Text_Editor_Custom_Control extends WP_Customize_Control {
             <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
             <?php
             $settings = array(
-            'media_buttons' => false,
-            'quicktags' => false,
-            'editor_class' => 'text-editor-custom-control',
+                'media_buttons' => false,
+                'quicktags' => false,
+                'editor_class' => 'text-editor-custom-control',
             );
             $this->filter_editor_setting_link();
             wp_editor( $this->value(), $this->id, $settings );

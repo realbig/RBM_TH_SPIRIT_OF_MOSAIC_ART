@@ -40,7 +40,7 @@ get_header();
         else:
         ?>
 
-        <div class="small-12 medium-9 columns">
+        <div class="small-12 columns">
             Nothing found.
         </div>
 
