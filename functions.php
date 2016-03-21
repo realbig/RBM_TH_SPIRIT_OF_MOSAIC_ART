@@ -70,6 +70,8 @@ add_action( 'after_setup_theme', function () {
  */
 function soma_customize_register( $wp_customize ) {
     
+    require_once __DIR__ . '/includes/class-text_editor_custom_control.php';
+    
     // General Theme Options
     $wp_customize->add_section( 'soma_customizer_section' , array(
             'title'      => __( 'Spirit of Mosaic Art Settings', THEME_ID ),
@@ -78,7 +80,7 @@ function soma_customize_register( $wp_customize ) {
     );
     
     $wp_customize->add_setting( 'soma_logo_image', array(
-            'default'     => 'http://placehold.it/1440x312',
+            'default'     => 1,
             'transport'   => 'refresh',
         ) 
     );
@@ -87,6 +89,44 @@ function soma_customize_register( $wp_customize ) {
         'section'    => 'soma_customizer_section',
         'settings'   => 'soma_logo_image',
         'mime_type' => 'image',
+    ) ) );
+    
+    $wp_customize->add_setting( 'soma_classes_image', array(
+            'default'     => 1,
+            'transport'   => 'refresh',
+        ) 
+    );
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'soma_classes_image', array(
+        'label'        => __( 'Accents & Classes Image', THEME_ID ),
+        'section'    => 'soma_customizer_section',
+        'settings'   => 'soma_classes_image',
+        'mime_type' => 'image',
+        'active_callback' => 'is_front_page',
+    ) ) );
+    
+    $wp_customize->add_setting( 'soma_classes_text', array(
+            'default'     => '',
+            'transport'   => 'refresh',
+        ) 
+    );
+    $wp_customize->add_control( new Text_Editor_Custom_Control( $wp_customize, 'soma_classes_text', array(
+        'label'        => __( 'Accents & Classes Text', THEME_ID ),
+        'section'    => 'soma_customizer_section',
+        'settings'   => 'soma_classes_text',
+        'active_callback' => 'is_front_page',
+    ) ) );
+    
+    $wp_customize->add_setting( 'soma_gallery_image', array(
+            'default'     => 1,
+            'transport'   => 'refresh',
+        ) 
+    );
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'soma_gallery_image', array(
+        'label'        => __( 'Gallery Image', THEME_ID ),
+        'section'    => 'soma_customizer_section',
+        'settings'   => 'soma_gallery_image',
+        'mime_type' => 'image',
+        'active_callback' => 'is_front_page',
     ) ) );
     
     $wp_customize->add_setting( 'soma_phone_number' , array(
@@ -141,6 +181,15 @@ add_action( 'init', function () {
     );
     
     wp_localize_script( THEME_ID, THEME_ID . '_data', array( 'ajaxUrl' => admin_url( 'admin-ajax.php' ) ) );
+    
+    // Customizer Controls
+    wp_register_script(
+        THEME_ID . '-customizer-controls',
+        get_template_directory_uri() . '/customizer-controls.js',
+        array( 'jquery', 'editor' ),
+        defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VERSION,
+        true
+    );
 
     // Theme fonts
     if ( ! empty( $soma_fonts ) ) {
@@ -225,6 +274,17 @@ add_action( 'wp_enqueue_scripts', function () {
         }
     }
 
+} );
+
+/**
+ *
+ * @since 0.1.0
+ * 
+ */
+add_action( 'customize_controls_enqueue_scripts', function() {
+    
+    wp_enqueue_script( THEME_ID . '-customizer-controls' );
+    
 } );
 
 /**

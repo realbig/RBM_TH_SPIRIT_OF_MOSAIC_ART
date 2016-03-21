@@ -3134,4 +3134,6 @@ header#site-header {
       border-left-color: #333 !important; }
     .top-bar .nav-menu > .menu li.current-menu-item.is-dropdown-submenu-parent.is-down-arrow > a:after, .top-bar .nav-menu > .menu li.current-menu-ancestor.is-dropdown-submenu-parent.is-down-arrow > a:after {
       border-top-color: #333 !important; }
+
+/* Override Foundation's _settings.scss here, or store your own variables */
 /*# sourceMappingURL=style.css.map */
