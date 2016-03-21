@@ -1,0 +1,61 @@
+@import "../functions";
+@import "../settings";
+
+.em-calendar {
+
+    thead, tbody, tfoot {
+
+        background-color: transparent;
+        @include light-or-dark-text( $white );
+
+        td {
+
+            border-bottom: none;
+
+        }
+
+    }
+
+    thead {
+        border-bottom: none;
+
+        a { 
+            color: $medium-gray;
+
+            &:hover {
+                color: scale-color( $medium-gray, $lightness: -25% );
+            }
+
+        }
+
+    }
+
+    tbody {
+
+        border-top: none;
+
+        tr:nth-child( even ) {
+
+            background-color: $light-gray;
+            @include light-or-dark-text( $white );
+
+        }
+
+        .eventless-today, .eventful-today {
+
+            background-color: $medium-gray; 
+            @include light-or-dark-text( $medium-gray );
+
+        }
+
+        td {
+            border: $table-border;
+        }
+
+        .days-names td {
+            border-top: none;
+        }
+
+    }
+
+}

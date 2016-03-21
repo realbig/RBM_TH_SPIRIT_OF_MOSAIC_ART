@@ -67,5 +67,19 @@
         }
 
     }
+
+    #events {
+        
+        .widget {
+            list-style-type: none;
+            text-align: center;
+        }
+
+        .em-calendar {
+            width: 50%;
+            margin: 0 auto;
+        }
+        
+    }
     
 }

@@ -279,6 +279,13 @@ add_action( 'widgets_init', function () {
         'description' => __( 'This is the default sidebar that appears.', THEME_ID ),
     ) );
     
+    // Events Manager Sidebar
+    register_sidebar( array(
+        'name' => __( 'Events Manager Sidebar', THEME_ID ),
+        'id' => 'events-sidebar',
+        'description' => __( 'This is the Events Manager sidebar on the Homepage and Contact page.', THEME_ID ),
+    ) );
+    
     // Footer
     $footer_columns = get_theme_mod( 'soma_footer_columns', 4 );
     for ( $index = 0; $index < $footer_columns; $index++ ) {

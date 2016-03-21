@@ -129,5 +129,11 @@ the_post();
 
 </section>
 
+<section id="events" class="row">
+    
+    <?php dynamic_sidebar( 'events-sidebar' ); ?>
+
+</section>
+
 <?php
 get_footer();

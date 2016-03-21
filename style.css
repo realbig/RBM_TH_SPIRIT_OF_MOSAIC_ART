@@ -3191,6 +3191,33 @@ a img.aligncenter {
       .realbig-slider-container .realbig-slider .indicators li:hover {
         background-color: #1585cf; }
 
+/* Override Foundation's _settings.scss here, or store your own variables */
+.em-calendar thead, .em-calendar tbody, .em-calendar tfoot {
+  background-color: transparent;
+  color: #333; }
+  .em-calendar thead td, .em-calendar tbody td, .em-calendar tfoot td {
+    border-bottom: none; }
+
+.em-calendar thead {
+  border-bottom: none; }
+  .em-calendar thead a {
+    color: #cacaca; }
+    .em-calendar thead a:hover {
+      color: #989898; }
+
+.em-calendar tbody {
+  border-top: none; }
+  .em-calendar tbody tr:nth-child(even) {
+    background-color: #e6e6e6;
+    color: #333; }
+  .em-calendar tbody .eventless-today, .em-calendar tbody .eventful-today {
+    background-color: #cacaca;
+    color: #333; }
+  .em-calendar tbody td {
+    border: 1px solid #f1f1f1; }
+  .em-calendar tbody .days-names td {
+    border-top: none; }
+
 header#site-header {
   padding-top: 1em; }
   header#site-header .logo-container .header-logo:hover {
@@ -3229,20 +3256,22 @@ header#site-header {
     background-color: #242424 !important; }
     .top-bar .nav-menu > .menu > li:hover > a {
       color: #fff; }
-  .top-bar .nav-menu > .menu > li li a {
-    color: #333; }
-  .top-bar .nav-menu > .menu > li li:hover {
-    background-color: #e6e6e6 !important; }
-    .top-bar .nav-menu > .menu > li li:hover > a {
+  .top-bar .nav-menu > .menu > li {
+    z-index: 999; }
+    .top-bar .nav-menu > .menu > li li a {
       color: #333; }
-  .top-bar .nav-menu > .menu > li .is-dropdown-submenu-parent.is-right-arrow > a:after {
-    border-left-color: #333 !important; }
-  .top-bar .nav-menu > .menu > li .is-dropdown-submenu-parent.is-right-arrow:hover > a:after {
-    border-left-color: #333 !important; }
-  .top-bar .nav-menu > .menu > li .is-dropdown-submenu-parent.is-down-arrow > a:after {
-    border-top-color: #333 !important; }
-  .top-bar .nav-menu > .menu > li .is-dropdown-submenu-parent.is-down-arrow:hover > a:after {
-    border-top-color: #333 !important; }
+    .top-bar .nav-menu > .menu > li li:hover {
+      background-color: #e6e6e6 !important; }
+      .top-bar .nav-menu > .menu > li li:hover > a {
+        color: #333; }
+    .top-bar .nav-menu > .menu > li .is-dropdown-submenu-parent.is-right-arrow > a:after {
+      border-left-color: #333 !important; }
+    .top-bar .nav-menu > .menu > li .is-dropdown-submenu-parent.is-right-arrow:hover > a:after {
+      border-left-color: #333 !important; }
+    .top-bar .nav-menu > .menu > li .is-dropdown-submenu-parent.is-down-arrow > a:after {
+      border-top-color: #333 !important; }
+    .top-bar .nav-menu > .menu > li .is-dropdown-submenu-parent.is-down-arrow:hover > a:after {
+      border-top-color: #333 !important; }
   .top-bar .nav-menu > .menu li.current-menu-item, .top-bar .nav-menu > .menu li.current-menu-ancestor {
     background-color: #cdcdcd; }
     .top-bar .nav-menu > .menu li.current-menu-item > a, .top-bar .nav-menu > .menu li.current-menu-ancestor > a {
@@ -3280,4 +3309,12 @@ header#site-header {
   @media only screen and (max-width: 40em) {
     .home #home-slider.realbig-slider-container .realbig-slider .indicators {
       display: none; } }
+
+.home #events .widget {
+  list-style-type: none;
+  text-align: center; }
+
+.home #events .em-calendar {
+  width: 50%;
+  margin: 0 auto; }
 /*# sourceMappingURL=style.css.map */
