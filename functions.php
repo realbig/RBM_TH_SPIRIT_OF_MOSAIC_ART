@@ -279,6 +279,13 @@ add_action( 'widgets_init', function () {
         'description' => __( 'This is the default sidebar that appears.', THEME_ID ),
     ) );
     
+    // Contact Sidebar
+    register_sidebar( array(
+        'name' => __( 'Contact Sidebar', THEME_ID ),
+        'id' => 'contact-sidebar',
+        'description' => __( 'This is the Contact sidebar.', THEME_ID ),
+    ) );
+    
     // Events Manager Sidebar
     register_sidebar( array(
         'name' => __( 'Events Manager Sidebar', THEME_ID ),
@@ -380,4 +387,229 @@ function remove_wp_smilies_from_feed( $query ) {
         remove_filter( 'the_content', 'convert_smilies' );
     }
     
+}
+
+/**
+ * Creates the Artwork CPT
+ *
+ * @since 0.1.0
+ */
+add_action( 'init', 'register_cpt_soma_artwork' );
+function register_cpt_soma_artwork() {
+    $labels = array(
+        'name' => _x( 'Artwork', THEME_ID ),
+        'all_items' => __( 'All Artwork', THEME_ID ),
+        'singular_name' => _x( 'Artwork', THEME_ID ),
+        'add_new' => _x( 'Add New Artwork', THEME_ID ),
+        'add_new_item' => _x( 'Add New Artwork', THEME_ID ),
+        'edit_item' => _x( 'Edit Artwork', THEME_ID ),
+        'new_item' => _x( 'New Artwork', THEME_ID ),
+        'view_item' => _x( 'View Artwork', THEME_ID ),
+        'search_items' => _x( 'Search Artwork', THEME_ID ),
+        'not_found' => _x( 'No Artwork found', THEME_ID ),
+        'not_found_in_trash' => _x( 'No Artwork found in Trash', THEME_ID ),
+        'parent_item_colon' => _x( 'Parent Artwork:', THEME_ID ),
+        'menu_name' => _x( 'Artwork', THEME_ID ),
+        'featured_image'        => _x( 'Art', THEME_ID ),
+        'remove_featured_image' => _x( 'Remove art', THEME_ID ),
+        'set_featured_image'    => _x( 'Set art', THEME_ID ),
+        'use_featured_image'    => _x( 'Use as art', THEME_ID ),
+    );
+    $args = array(
+        'labels' => $labels,
+        'menu_icon' => 'dashicons-art',
+        'hierarchical' => false,
+        'description' => 'artwork',
+        'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'comments' ),
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 5,
+        'show_in_nav_menus' => true,
+        'publicly_queryable' => true,
+        'exclude_from_search' => false,
+        'has_archive' => true,
+        'query_var' => true,
+        'can_export' => true,
+        'rewrite' => array(
+            'slug' => 'artwork',
+            'with_front' => false,
+            'feeds' => false,
+            'pages' => true
+        ),
+        'capability_type' => 'post',
+        /*
+        'capability_type' => 'artwork',
+        'capabilities' => array(
+            // Singular
+            'edit_post'	=>	'edit_artwork',
+            'read_post'	=>	'read_artwork',
+            'delete_post'	=>	'delete_artwork',
+            // Plural
+            'edit_posts'	=>	'edit_artworks',
+            'edit_others_posts'	=>	'edit_others_artworks',
+            'publish_posts'	=>	'publish_artworks',
+            'read_private_posts'	=>	'read_private_artworks',
+            'delete_posts'	=>	'delete_artworks',
+            'delete_private_posts'	=>	'delete_private_artworks',
+            'delete_published_posts'	=>	'delete_published_artworks',
+            'delete_others_posts'	=>	'delete_others_artworks',
+            'edit_private_posts'	=>	'edit_private_artworks',
+            'edit_published_posts'	=>	'edit_published_artworks',
+        ),
+		*/
+    );
+    register_post_type( 'soma_artwork', $args );
+}
+/**
+ * Creates the Artwork Series Category
+ *
+ * @since 0.1.0
+ */
+add_action( 'init', 'register_taxonomy_soma_artwork_series' );
+function register_taxonomy_soma_artwork_series() {
+    $labels = array(
+        'name' => _x( 'Series', THEME_ID ),
+        'singular_name' => _x( 'Artwork Series', THEME_ID ),
+        'search_items' => __( 'Search Series', THEME_ID ),
+        'popular_items' => __( 'Popular Series', THEME_ID ),
+        'all_items' => __( 'All Series', THEME_ID ),
+        'parent_item' => __( 'Parent Series', THEME_ID ),
+        'parent_item_colon' => __( 'Parent Series:', THEME_ID ),
+        'edit_item' => __( 'Edit Series', THEME_ID ),
+        'update_item' => __( 'Update Series', THEME_ID ),
+        'add_new_item' => __( 'Add New Series', THEME_ID ),
+        'new_item_name' => __( 'New Series Name', THEME_ID ),
+        'separate_items_with_commas' => __( 'Separate Series with commas', THEME_ID ),
+        'add_or_remove_items' => __( 'Add or remove Series', THEME_ID ),
+        'choose_from_most_used' => __( 'Choose from the most used Series', THEME_ID ),
+        'not_found' => __( 'No Series found.', THEME_ID ),
+        'menu_name' => __( 'Artwork Series', THEME_ID ),
+    );
+    $args = array(
+        'hierarchical' => true,
+        'labels' => $labels,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'rewrite' => array( 'slug' => 'artwork-series' ),
+    );
+    register_taxonomy( 'soma_artwork_series', 'soma_artwork', $args );
+}
+/**
+ * Creates the Artwork Material Category
+ *
+ * @since 0.1.0
+ */
+add_action( 'init', 'register_taxonomy_soma_artwork_material' );
+function register_taxonomy_soma_artwork_material() {
+    $labels = array(
+        'name' => _x( 'Artwork Material', THEME_ID ),
+        'singular_name' => _x( 'Artwork Material', THEME_ID ),
+        'search_items' => __( 'Search Artwork Materials', THEME_ID ),
+        'popular_items' => __( 'Popular Artwork Materials', THEME_ID ),
+        'all_items' => __( 'All Artwork Materials', THEME_ID ),
+        'parent_item' => __( 'Parent Artwork Material', THEME_ID ),
+        'parent_item_colon' => __( 'Parent Artwork Material:', THEME_ID ),
+        'edit_item' => __( 'Edit Artwork Material', THEME_ID ),
+        'update_item' => __( 'Update Artwork Material', THEME_ID ),
+        'add_new_item' => __( 'Add New Artwork Material', THEME_ID ),
+        'new_item_name' => __( 'New Artwork Material Name', THEME_ID ),
+        'separate_items_with_commas' => __( 'Separate Artwork Materials with commas', THEME_ID ),
+        'add_or_remove_items' => __( 'Add or remove Artwork Materials', THEME_ID ),
+        'choose_from_most_used' => __( 'Choose from the most used Artwork Materials', THEME_ID ),
+        'not_found' => __( 'No Artwork Materials found.', THEME_ID ),
+        'menu_name' => __( 'Artwork Materials', THEME_ID ),
+    );
+    $args = array(
+        'hierarchical' => true,
+        'labels' => $labels,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'rewrite' => array( 'slug' => 'artwork-material' ),
+    );
+    register_taxonomy( 'soma_artwork_material', 'soma_artwork', $args );
+}
+/**
+ * Creates the [soma_artwork] shortcode
+ *
+ * @since 0.1.0
+ */
+add_shortcode( 'soma_artwork', 'soma_artwork_shortcode_register' );
+function soma_artwork_shortcode_register( $atts ) {
+    
+    if ( is_front_page() ) {
+        $paged = get_query_var( 'page' ) ? get_query_var( 'page' ) : 1;
+    }
+    else {
+        $paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1; 
+    }
+    
+    $atts = shortcode_atts(
+        array( // a few default values
+            'post_type' => 'soma_artwork',
+            'ignore_sticky_posts' => 1,
+            'suppress_filters' => false,
+            'post_status' => 'publish',
+            'before_item' => '<article class="media-object stack-for-small">',
+            'after_item' => '</article>',
+            'classes' => '', // Classes for wrapper <div>
+            'posts_per_page' => 5,
+            'paged' => $paged,
+        ),
+        $atts,
+        'soma_artwork'
+    );
+    
+    $out = '';
+    $artwork = new WP_Query( $atts );
+    
+    $paginate_args = array(
+        'current' => $paged,
+        'prev_text' => __( '&laquo; View Older Artwork', THEME_ID ),
+        'next_text' => __( 'View Newer Artwork &raquo;', THEME_ID ),
+    );
+    
+    // Pagination Fix
+    global $wp_query;
+    $temp_query = $wp_query;
+    $wp_query = NULL;
+    $wp_query = $artwork;
+    
+    if ( $artwork->have_posts() ) : 
+    
+        ob_start();
+    
+        echo '<div id="soma_artwork-shortcode-' . get_the_id() . '"' . ( ( $atts['classes'] !== '' ) ? ' class="' . $atts['classes'] . '"' : '' ) . '>';
+    
+        while ( $artwork->have_posts() ) :
+            $artwork->the_post();
+    
+                echo $atts['before_item'];
+                    include( locate_template( 'partials/soma_artwork-loop-single.php' ) );
+                echo $atts['after_item'];
+    
+        endwhile;
+    
+            echo '<div class="pagination">';
+                echo paginate_links( $paginate_args );
+            echo '</div>';
+    
+        echo '</div>';
+        
+        $out = ob_get_contents();  
+        ob_end_clean();
+    
+        wp_reset_postdata();
+    
+        // Reset main query object after Pagination is done.
+        $wp_query = NULL;
+        $wp_query = $temp_query;
+    
+        return html_entity_decode( $out );
+    
+    else :
+        return 'No Artwork Found';
+    endif;
 }
