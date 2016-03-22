@@ -563,7 +563,7 @@ function soma_artwork_shortcode_register( $atts ) {
         'soma_artwork'
     );
     
-    if ( isset( $atts['commissioned_only'] ) ) {
+    if ( $atts['commissioned_only'] !== false ) {
        
         $atts['meta_query'] = array(
             array(

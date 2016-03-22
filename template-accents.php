@@ -31,7 +31,7 @@ the_post();
             <div class="page-copy">
                 <?php the_content(); ?>
                 
-                <?php echo do_shortcode( '[soma_artwork commissioned_only]' ); ?>
+                <?php echo do_shortcode( '[soma_artwork commissioned_only=true]' ); ?>
             </div>
             
         </div>
