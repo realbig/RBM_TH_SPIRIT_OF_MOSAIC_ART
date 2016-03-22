@@ -557,10 +557,23 @@ function soma_artwork_shortcode_register( $atts ) {
             'classes' => '', // Classes for wrapper <div>
             'posts_per_page' => 5,
             'paged' => $paged,
+            'commissioned_only' => false,
         ),
         $atts,
         'soma_artwork'
     );
+    
+    if ( isset( $atts['commissioned_only'] ) ) {
+       
+        $atts['meta_query'] = array(
+            array(
+                'meta_key' => 'artwork_commissioned',
+                'value' => '"true"',
+                'compare' => 'LIKE',
+            ),
+        );
+        
+    }
     
     $out = '';
     $artwork = new WP_Query( $atts );
@@ -610,7 +623,13 @@ function soma_artwork_shortcode_register( $atts ) {
         return html_entity_decode( $out );
     
     else :
-        return 'No Artwork Found';
+        
+        if ( isset( $atts['commissioned_only'] ) ) {
+            return __( 'No Commissioned Artwork Found', THEME_ID );
+        }
+    
+        return __( 'No Artwork Found', THEME_ID );
+    
     endif;
 }
 
@@ -739,10 +758,10 @@ function soma_post_shortcode_register( $atts ) {
     else :
     
         if ( $atts['category'] !== '' ) {
-            return 'No Posts in the ' . $atts['category'] . ' Category Found';
+            return sprintf( __( 'No Posts in the %s Category Found', THEME_ID ), $atts['category'] );
         }
     
-        return 'No Posts Found';
+        return __( 'No Posts Found', THEME_ID );
     
     endif;
 
