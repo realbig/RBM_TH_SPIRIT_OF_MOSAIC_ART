@@ -3218,18 +3218,22 @@ a img.aligncenter {
   .em-calendar tbody .days-names td {
     border-top: none; }
 
-header#site-header {
-  padding-top: 1em; }
-  header#site-header .logo-container .header-logo:hover {
-    box-shadow: none; }
-  header#site-header .site-title-container {
-    position: relative;
-    min-height: 160px; }
-    header#site-header .site-title-container .site-title {
-      position: absolute;
-      bottom: 0;
-      margin-bottom: 0; }
+/* Override Foundation's _settings.scss here, or store your own variables */
+.off-canvas-content {
+  box-shadow: none; }
 
+.off-canvas {
+  min-height: 100vh;
+  height: 100vh; }
+  .off-canvas > .menu > li {
+    background-color: black;
+    /* Top Level */ }
+    .off-canvas > .menu > li a {
+      color: #d9d9d9 !important; }
+    .off-canvas > .menu > li ul li {
+      background-color: #0a0a0a; }
+
+/* Override Foundation's _settings.scss here, or store your own variables */
 .top-bar .nav-menu {
   text-align: center; }
   .top-bar .nav-menu > .dropdown.menu {
@@ -3280,6 +3284,57 @@ header#site-header {
       border-left-color: #333 !important; }
     .top-bar .nav-menu > .menu li.current-menu-item.is-dropdown-submenu-parent.is-down-arrow > a:after, .top-bar .nav-menu > .menu li.current-menu-ancestor.is-dropdown-submenu-parent.is-down-arrow > a:after {
       border-top-color: #333 !important; }
+
+/* Override Foundation's _settings.scss here, or store your own variables */
+header#site-header {
+  padding-top: 1em; }
+  header#site-header .logo-container .header-logo:hover {
+    box-shadow: none; }
+  header#site-header .site-title-container {
+    position: relative;
+    min-height: 160px; }
+    header#site-header .site-title-container .site-title {
+      position: absolute;
+      bottom: 0;
+      margin-bottom: 0; }
+
+/* Override Foundation's _settings.scss here, or store your own variables */
+#respond #submit {
+  background-color: #2199e8;
+  color: #fff;
+  border: none; }
+  #respond #submit:hover, #respond #submit:focus {
+    background-color: #1583cc;
+    color: #fff; }
+
+/* Override Foundation's _settings.scss here, or store your own variables */
+.single .thumbnail.post-thumbnail-container {
+  float: left;
+  margin-right: 2.5rem; }
+
+.single .post-comments {
+  clear: both; }
+
+/* Override Foundation's _settings.scss here, or store your own variables */
+.page img.alignnone[class*=" wp-image-"]:first-of-type {
+  float: left;
+  margin-right: 2.5rem; }
+
+.page .page-comments {
+  clear: both; }
+
+.page div[id^='soma_post-shortcode-'] .post {
+  padding-bottom: 30px; }
+
+.page .pagination {
+  text-align: center; }
+
+/* Override Foundation's _settings.scss here, or store your own variables */
+.sidebar .em-calendar {
+  width: 100%; }
+
+li.widget {
+  list-style-type: none; }
 
 /* Override Foundation's _settings.scss here, or store your own variables */
 .home #home-slider.realbig-slider-container .realbig-slider {

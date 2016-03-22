@@ -613,3 +613,137 @@ function soma_artwork_shortcode_register( $atts ) {
         return 'No Artwork Found';
     endif;
 }
+
+/**
+ * Creates the [soma_post] shortcode
+ *
+ * @since 0.1.0
+ */
+add_shortcode( 'soma_post', 'soma_post_shortcode_register' );
+function soma_post_shortcode_register( $atts ) {
+    
+    if ( is_front_page() ) {
+        $paged = get_query_var( 'page' ) ? get_query_var( 'page' ) : 1;
+    }
+    else {
+        $paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1; 
+    }
+    
+    $atts = shortcode_atts(
+        array( // a few default values
+            'post_type' => 'post',
+            'ignore_sticky_posts' => 1,
+            'suppress_filters' => false,
+            'post_status' => 'publish',
+            'before_item' => '<article>',
+            'after_item' => '</article>',
+            'category' => '',
+            'classes' => '', // Classes for wrapper <div>
+            'posts_per_page' => 5,
+            'excerpt' => true,
+            'date' => false,
+            'title' => '',
+            'paged' => $paged,
+        ),
+        $atts,
+        'soma_post'
+    );
+    
+    if ( $atts['category'] !== '' ) {
+        
+        $atts['tax_query'] = array(
+            array(
+                'taxonomy' => 'category',
+                'field' => 'name',
+                'terms' => $atts['category'],
+            ),
+        );
+        
+    }
+    
+    $out = '';
+    $soma_post = new WP_Query( $atts );
+    
+    $paginate_args = array(
+        'current' => $paged,
+        'prev_text' => __( '&laquo; View Older Posts', THEME_ID ),
+        'next_text' => __( 'View Newer Posts &raquo;', THEME_ID ),
+    );
+
+    if ( is_front_page() ) {
+        $paginate_args['format'] = 'blogs/page/%#%';
+    }
+    
+    // Pagination Fix
+    global $wp_query;
+    $temp_query = $wp_query;
+    $wp_query = NULL;
+    $wp_query = $soma_post;
+    
+    if ( $soma_post->have_posts() ) : 
+    
+        ob_start();
+    
+        echo '<div id="soma_post-shortcode-' . get_the_id() . '"' . ( ( $atts['classes'] !== '' ) ? ' class="' . $atts['classes'] . '"' : '' ) . '>';
+    
+        if ( $atts['title'] !== '' ) {
+            ?>
+            
+            <div class="heading">
+                
+                <h2><?php echo $atts['title']; ?></h2>
+
+            </div>
+
+            <?php
+        }
+    
+        while ( $soma_post->have_posts() ) :
+            $soma_post->the_post();
+    
+                // Forcefully add post_class()
+                if ( strpos( $atts['before_item'], 'class' ) !== false ) {
+                    
+                    $atts['before_item'] = preg_replace( '/class\s?=\s?"/i', 'class="' . implode( ' ', get_post_class() ) . ' ', $atts['before_item'] );
+                    
+                }
+                else {
+                    
+                    $atts['before_item'] = str_replace( '>', ' class="' . implode( ' ', get_post_class() ) . '">', $atts['before_item'] );
+                    
+                }
+    
+                echo $atts['before_item'];
+                    include( locate_template( 'partials/post-loop-single.php' ) );
+                echo $atts['after_item'];
+    
+        endwhile;
+    
+            echo '<div class="post pagination">';
+                echo paginate_links( $paginate_args );
+            echo '</div>';
+    
+        echo '</div>';
+        
+        $out = ob_get_contents();  
+        ob_end_clean();
+    
+        wp_reset_postdata();
+        
+        // Reset main query object after Pagination is done.
+        $wp_query = NULL;
+        $wp_query = $temp_query;
+    
+        return html_entity_decode( $out );
+    
+    else :
+    
+        if ( $atts['category'] !== '' ) {
+            return 'No Posts in the ' . $atts['category'] . ' Category Found';
+        }
+    
+        return 'No Posts Found';
+    
+    endif;
+
+}

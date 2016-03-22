@@ -1,0 +1,14 @@
+@import "../functions";
+@import "../settings";
+
+#respond {
+    
+    #submit {
+        
+        @include button-style();
+        
+        border: none;
+        
+    }
+    
+}

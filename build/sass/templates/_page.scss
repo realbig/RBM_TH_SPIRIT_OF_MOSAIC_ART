@@ -1,0 +1,29 @@
+@import "../functions";
+@import "../settings";
+
+.page {
+
+    img.alignnone[class*=" wp-image-"]:first-of-type {
+
+        float: left;
+        margin-right: $thumbnail-margin-bottom + 1.5;
+
+    }
+    
+    .page-comments {
+        clear: both;
+    }
+    
+    div[id^='soma_post-shortcode-'] {
+        
+        .post {
+            padding-bottom: 30px;
+        }
+        
+    }
+    
+    .pagination {
+            text-align: center;
+    }
+
+}

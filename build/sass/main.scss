@@ -44,8 +44,13 @@ Version: 0.1.0
 @import "global/em-calendar";
 
 // Static
-@import "static/header";
+@import "static/off-canvas";
 @import "static/top-bar";
+@import "static/header";
+@import "static/comments";
 
 // Page Templates
+@import "templates/single";
+@import "templates/page";
+@import "templates/sidebar";
 @import "templates/front-page";

@@ -1,0 +1,34 @@
+@import "../functions";
+@import "../settings";
+
+.off-canvas-content {
+    box-shadow: none;
+    // For something that has to wrap your Site Content, this is a really silly default...
+}
+
+.off-canvas {
+    
+    min-height: 100vh;
+    height: 100vh; 
+
+    > .menu {
+
+        > li {
+
+            background-color: darken( $topbar-background, 10% ); /* Top Level */
+            
+            a {
+                color: darken( $topbar-link-color, 15% ) !important;
+            }
+
+            ul {
+                li {
+                    background-color: $topbar-background;
+                }
+            }
+
+        }
+
+    }
+
+}

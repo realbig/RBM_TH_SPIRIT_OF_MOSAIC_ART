@@ -1,5 +1,9 @@
 jQuery( document ).ready( function( $ ) {
     
-    $( '.em-calendar' ).attr( 'height', ( $( '.em-calendar' )[0].clientWidth - 50 ) );
+    if ( $( '.em-calendar' ).length > 0 ) {
+    
+        $( '.em-calendar' ).attr( 'height', ( $( '.em-calendar' )[0].clientWidth - 50 ) );
+        
+    }
     
 } );
