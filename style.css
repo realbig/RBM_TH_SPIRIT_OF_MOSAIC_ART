@@ -3286,26 +3286,29 @@ a img.aligncenter {
       border-top-color: #333 !important; }
 
 /* Override Foundation's _settings.scss here, or store your own variables */
-header#site-header {
-  padding-top: 1em; }
-  header#site-header .logo-container .header-logo:hover {
-    box-shadow: none; }
+header#site-header .header-information {
+  margin-top: 1em; }
+
+header#site-header .logo-container .header-logo:hover {
+  box-shadow: none; }
+
+header#site-header .site-title-container {
+  position: relative;
+  min-height: 160px; }
+  header#site-header .site-title-container .site-title {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0; }
+
+@media only screen and (max-width: 40em) {
+  header#site-header .logo-container, header#site-header .logo-container *, header#site-header .site-title-container, header#site-header .site-title-container * {
+    text-align: center; }
   header#site-header .site-title-container {
-    position: relative;
-    min-height: 160px; }
+    min-height: 0; }
     header#site-header .site-title-container .site-title {
-      position: absolute;
-      bottom: 0;
-      margin-bottom: 0; }
-  @media only screen and (max-width: 40em) {
-    header#site-header .logo-container, header#site-header .logo-container *, header#site-header .site-title-container, header#site-header .site-title-container * {
-      text-align: center; }
-    header#site-header .site-title-container {
-      min-height: 0; }
-      header#site-header .site-title-container .site-title {
-        position: relative;
-        bottom: auto;
-        margin-bottom: 0.5rem; } }
+      position: relative;
+      bottom: auto;
+      margin-bottom: 0.5rem; } }
 
 /* Override Foundation's _settings.scss here, or store your own variables */
 #respond #submit {

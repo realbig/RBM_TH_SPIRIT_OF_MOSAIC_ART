@@ -58,7 +58,17 @@ if ( ! isset( $_SESSION ) ) {
 
                 <header id="site-header">
                     
-                    <div class="row">
+                    <div class="top-bar show-for-small-only">
+                        
+                        <div class="top-bar-left show-for-small-only">
+
+                            <button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
+
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="row header-information">
                         
                         <div class="small-12 medium-5 medium-centered columns">
                     
@@ -90,9 +100,9 @@ if ( ! isset( $_SESSION ) ) {
                         
                     </div>
 
-                    <div class="top-bar">
+                    <div class="top-bar hide-for-small-only">
 
-                        <div class="top-bar-section hide-for-small-only nav-menu">
+                        <div class="top-bar-section nav-menu">
                             <?php
                             wp_nav_menu( array(
                                 'container' => false,
@@ -104,12 +114,6 @@ if ( ! isset( $_SESSION ) ) {
                                 'walker' => new Foundation_Nav_Walker(),
                             ) );
                             ?>
-                        </div>
-
-                        <div class="top-bar-left show-for-small-only">
-
-                            <button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
-
                         </div>
 
                     </div>
