@@ -32,4 +32,30 @@ header#site-header {
         
     }
     
+    @media #{$screen} and ( max-width: 40em ) {
+        
+        .logo-container, .site-title-container {
+            
+            &, * {
+                text-align: center;
+            }
+            
+        }
+        
+        .site-title-container {
+            
+            min-height: 0;
+
+            .site-title {
+
+                position: relative;
+                bottom: auto;
+                margin-bottom: $header-margin-bottom;
+
+            }
+            
+        }
+
+    }
+    
 }

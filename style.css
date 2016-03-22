@@ -3297,6 +3297,15 @@ header#site-header {
       position: absolute;
       bottom: 0;
       margin-bottom: 0; }
+  @media only screen and (max-width: 40em) {
+    header#site-header .logo-container, header#site-header .logo-container *, header#site-header .site-title-container, header#site-header .site-title-container * {
+      text-align: center; }
+    header#site-header .site-title-container {
+      min-height: 0; }
+      header#site-header .site-title-container .site-title {
+        position: relative;
+        bottom: auto;
+        margin-bottom: 0.5rem; } }
 
 /* Override Foundation's _settings.scss here, or store your own variables */
 #respond #submit {
