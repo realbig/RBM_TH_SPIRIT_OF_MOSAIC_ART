@@ -91,53 +91,53 @@ function soma_customize_register( $wp_customize ) {
         'mime_type' => 'image',
     ) ) );
     
-    $wp_customize->add_setting( 'soma_classes_image', array(
+    $wp_customize->add_setting( 'soma_accents_image', array(
             'default'     => 1,
             'transport'   => 'refresh',
         ) 
     );
-    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'soma_classes_image', array(
-        'label'        => __( 'Accents & Classes Image', THEME_ID ),
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'soma_accents_image', array(
+        'label'        => __( 'Accents Image', THEME_ID ),
         'section'    => 'soma_customizer_section',
-        'settings'   => 'soma_classes_image',
+        'settings'   => 'soma_accents_image',
         'mime_type' => 'image',
         'active_callback' => 'is_front_page',
     ) ) );
     
-    $wp_customize->add_setting( 'soma_classes_text', array(
+    $wp_customize->add_setting( 'soma_accents_text', array(
             'default'     => '',
             'transport'   => 'refresh',
         ) 
     );
-    $wp_customize->add_control( new Text_Editor_Custom_Control( $wp_customize, 'soma_classes_text', array(
-        'label'        => __( 'Accents & Classes Text', THEME_ID ),
+    $wp_customize->add_control( new Text_Editor_Custom_Control( $wp_customize, 'soma_accents_text', array(
+        'label'        => __( 'Accents Text', THEME_ID ),
         'section'    => 'soma_customizer_section',
-        'settings'   => 'soma_classes_text',
+        'settings'   => 'soma_accents_text',
         'active_callback' => 'is_front_page',
     ) ) );
     
-    $wp_customize->add_setting( 'soma_classes_button' , array(
-            'default'     => 'Accents & Classes',
+    $wp_customize->add_setting( 'soma_accents_button' , array(
+            'default'     => 'Accents',
             'transport'   => 'refresh',
         ) 
     );
-    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'soma_classes_button', array(
-        'label'        => __( 'Accents & Classes Button Text', THEME_ID ),
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'soma_accents_button', array(
+        'label'        => __( 'Accents Button Text', THEME_ID ),
         'section'    => 'soma_customizer_section',
-        'settings'   => 'soma_classes_button',
+        'settings'   => 'soma_accents_button',
         'active_callback' => 'is_front_page',
     ) ) );
     
-    $wp_customize->add_setting( 'soma_classes_link' , array(
+    $wp_customize->add_setting( 'soma_accents_link' , array(
             'default'     => '#',
             'transport'   => 'refresh',
         ) 
     );
-    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'soma_classes_link', array(
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'soma_accents_link', array(
         'type' => 'url',
-        'label'        => __( 'Accents & Classes Button Link', THEME_ID ),
+        'label'        => __( 'Accents Button Link', THEME_ID ),
         'section'    => 'soma_customizer_section',
-        'settings'   => 'soma_classes_link',
+        'settings'   => 'soma_accents_link',
         'active_callback' => 'is_front_page',
     ) ) );
     

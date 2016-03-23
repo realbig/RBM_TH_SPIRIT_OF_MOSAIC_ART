@@ -99,14 +99,14 @@ the_post();
         
         <div class="text-center">
 
-            <?php echo wp_get_attachment_image( get_theme_mod( 'soma_classes_image', 1 ), 'medium', false, array( 'class' => 'thumbnail' ) ); ?>
+            <?php echo wp_get_attachment_image( get_theme_mod( 'soma_accents_image', 1 ), 'medium', false, array( 'class' => 'thumbnail' ) ); ?>
             
         </div>
         
-        <?php echo apply_filters( 'the_content', get_theme_mod( 'soma_classes_text', '' ) ); ?>
+        <?php echo apply_filters( 'the_content', get_theme_mod( 'soma_accents_text', '' ) ); ?>
         
         <div class="text-center">
-            <a class="button" href="<?php echo get_theme_mod( 'soma_classes_link', '#' ); ?>"><?php echo get_theme_mod( 'soma_classes_button', 'Accents & Classes' ); ?></a>
+            <a class="button" href="<?php echo get_theme_mod( 'soma_accents_link', '#' ); ?>"><?php echo get_theme_mod( 'soma_accents_button', 'Accents & Classes' ); ?></a>
         </div>
 
     </div>
