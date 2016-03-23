@@ -18,7 +18,7 @@ the_post();
 
 <section id="page-<?php the_ID(); ?>" <?php body_class( array( 'page-content', 'gallery' ) ); ?>>
     <div class="row">
-        <div class="small-12 medium-9 columns">
+        <div class="small-12 columns">
 
             <?php if ( has_post_thumbnail() ) : ?>
             <div class="page-image">
@@ -30,18 +30,20 @@ the_post();
 
             <div class="page-copy">
                 <?php the_content(); ?>
-                
-                <?php echo do_shortcode( '[soma_artwork commissioned_only=true]' ); ?>
             </div>
             
         </div>
-        
-        <div class="small-12 medium-3 columns sidebar">
 
-            <?php dynamic_sidebar( 'main-sidebar' ); ?>
+    </div>
+</section>
 
+<?php include( locate_template( 'partials/page-banner_section.php' ) ); ?>
+
+<section id="commissioned-artwork">
+    <div class="row">
+        <div class="small-12 columns">
+            <?php echo do_shortcode( '[soma_artwork commissioned_only=true]' ); ?>
         </div>
-
     </div>
 </section>
 

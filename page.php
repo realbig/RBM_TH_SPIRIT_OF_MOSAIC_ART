@@ -16,15 +16,15 @@ get_header();
 the_post();
 ?>
 
+<?php if ( has_post_thumbnail() ) : ?>
+<section class="page-header text-center">
+    <?php the_post_thumbnail( 'medium' ); ?>
+</section>
+<?php endif; ?>
+
 <section id="page-<?php the_ID(); ?>" <?php body_class( array( 'page-content' ) ); ?>>
     <div class="row">
         <div class="small-12 medium-9 columns">
-
-            <?php if ( has_post_thumbnail() ) : ?>
-            <div class="page-image">
-                <?php the_post_thumbnail( 'full' ); ?>
-            </div>
-            <?php endif; ?>
             
             <h1 class="page-title"><?php the_title(); ?></h1>
 
