@@ -4,6 +4,12 @@ jQuery( document ).ready( function( $ ) {
     
         $( '.em-calendar' ).attr( 'height', ( $( '.em-calendar' )[0].clientWidth - 50 ) );
         
+        $( document ).on( 'em_calendar_load', function() {
+            
+            $( '.em-calendar' ).attr( 'height', ( $( '.em-calendar' )[0].clientWidth - 50 ) );
+            
+        } );
+        
     }
     
 } );
