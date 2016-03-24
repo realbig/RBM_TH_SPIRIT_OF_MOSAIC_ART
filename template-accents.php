@@ -16,7 +16,7 @@ get_header();
 the_post();
 ?>
 
-<section id="page-<?php the_ID(); ?>" <?php body_class( array( 'page-content', 'gallery' ) ); ?>>
+<section id="page-<?php the_ID(); ?>" <?php body_class( array( 'page-content', 'accents' ) ); ?>>
     <div class="row">
         <div class="small-12 columns">
 
@@ -37,7 +37,7 @@ the_post();
     </div>
 </section>
 
-<?php include( locate_template( 'partials/page-banner_section.php' ) ); ?>
+<?php include( locate_template( 'partials/page-banner-section.php' ) ); ?>
 
 <section id="commissioned-artwork">
     <div class="row">

@@ -1,0 +1,26 @@
+@import "../functions";
+@import "../settings";
+
+.banner-section {
+    
+    background-color: $dark-gray;
+    @include light-or-dark-text( $dark-gray );
+    
+    padding: 30px;
+    margin-bottom: 30px;
+    
+    .media-object-section {
+        
+        vertical-align: middle;
+        
+        img {
+            margin: 0;
+        }
+        
+        p:last-of-type {
+            margin-bottom: 0;
+        }
+        
+    }
+    
+}

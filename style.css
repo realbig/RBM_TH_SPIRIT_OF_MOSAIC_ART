@@ -3384,4 +3384,23 @@ li.widget {
 .home #events .em-calendar {
   width: 50%;
   margin: 0 auto; }
+
+/* Override Foundation's _settings.scss here, or store your own variables */
+.page-template.accents {
+  background-color: #e6e6e6;
+  color: #333;
+  text-align: center; }
+
+/* Override Foundation's _settings.scss here, or store your own variables */
+.banner-section {
+  background-color: #8a8a8a;
+  color: #333;
+  padding: 30px;
+  margin-bottom: 30px; }
+  .banner-section .media-object-section {
+    vertical-align: middle; }
+    .banner-section .media-object-section img {
+      margin: 0; }
+    .banner-section .media-object-section p:last-of-type {
+      margin-bottom: 0; }
 /*# sourceMappingURL=style.css.map */

@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<section id="banner-section">
+<section class="banner-section">
     
     <div class="row">
     

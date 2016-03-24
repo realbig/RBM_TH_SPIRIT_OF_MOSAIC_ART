@@ -1,0 +1,11 @@
+@import "../functions";
+@import "../settings";
+
+.page-template.accents {
+    
+    background-color: $light-gray;
+    @include light-or-dark-text( $light-gray );
+    
+    text-align: center;
+    
+}
