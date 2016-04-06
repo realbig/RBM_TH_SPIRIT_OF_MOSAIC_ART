@@ -30,6 +30,15 @@ header#site-header {
             bottom: 0;
             margin-bottom: 0;
             
+            .main-title {
+                font-weight: 600;
+            }
+            
+            .sub-title {
+                font-family: $body-font-family;
+                font-weight: 600;
+            }
+            
         }
         
     }

@@ -83,7 +83,8 @@ if ( ! isset( $_SESSION ) ) {
                                 <div class="small-12 medium-6 columns site-title-container">
                                     <h2 class="site-title">
                                         <a href="<?php bloginfo( 'url' ); ?>" title = "<?php bloginfo( 'name' ); ?> - Home">
-                                            <?php bloginfo( 'name' ); ?>
+                                            <span class="main-title"><?php echo get_theme_mod( 'soma_main_title', __( 'The Spirit', THEME_ID ) ); ?></span><br />
+                                            <span class="sub-title"><?php echo get_theme_mod( 'soma_sub_title', __( 'of Mosaic Art', THEME_ID ) ); ?></span>
                                         </a>
                                     </h2>
                                 </div>

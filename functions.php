@@ -91,6 +91,28 @@ function soma_customize_register( $wp_customize ) {
         'mime_type' => 'image',
     ) ) );
     
+    $wp_customize->add_setting( 'soma_main_title', array(
+            'default'     => __( 'The Spirit', THEME_ID ),
+            'transport'   => 'refresh',
+        ) 
+    );
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'soma_main_title', array(
+        'label'        => __( 'Header Main Title', THEME_ID ),
+        'section'    => 'soma_customizer_section',
+        'settings'   => 'soma_main_title',
+    ) ) );
+    
+    $wp_customize->add_setting( 'soma_sub_title', array(
+            'default'     => __( 'of Mosaic Art', THEME_ID ),
+            'transport'   => 'refresh',
+        ) 
+    );
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'soma_sub_title', array(
+        'label'        => __( 'Header Sub Title', THEME_ID ),
+        'section'    => 'soma_customizer_section',
+        'settings'   => 'soma_sub_title',
+    ) ) );
+    
     $wp_customize->add_setting( 'soma_accents_image', array(
             'default'     => 1,
             'transport'   => 'refresh',

@@ -830,7 +830,7 @@ html {
 body {
   padding: 0;
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: "Franklin Gothic Book";
   font-weight: normal;
   line-height: 1.5;
   color: #0a0a0a;
@@ -1916,7 +1916,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: "Franklin Gothic Demi";
   font-weight: normal;
   font-style: normal;
   color: inherit;
@@ -3060,6 +3060,9 @@ img[class*=" wp-image-"] {
   img[class*=" wp-image-"]:hover, img[class*=" wp-image-"]:focus {
     box-shadow: 0 0 6px 1px rgba(33, 153, 232, 0.5); }
 
+.button {
+  font-weight: 600; }
+
 .pagination {
   text-align: center; }
 
@@ -3164,6 +3167,24 @@ a img.aligncenter {
   z-index: 100000;
   /* Above WP toolbar. */ }
 
+@font-face {
+  font-family: 'Franklin Gothic Demi';
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/franklin-gothic-demi.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Franklin Gothic Book';
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/franklin-gothic-book.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Franklin Gothic Book Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/franklin-gothic-book-italic.woff") format("woff"); }
+
 /* Override Foundation's _settings.scss here, or store your own variables */
 .realbig-slider-container {
   width: 100%;
@@ -3232,7 +3253,10 @@ a img.aligncenter {
 
 /* Override Foundation's _settings.scss here, or store your own variables */
 .top-bar .nav-menu {
-  text-align: center; }
+  text-align: center;
+  font-family: "Franklin Gothic Demi";
+  font-weight: 500;
+  text-transform: uppercase; }
   .top-bar .nav-menu > .dropdown.menu {
     display: inline-table;
     vertical-align: middle;
@@ -3296,6 +3320,11 @@ header#site-header .site-title-container {
     position: absolute;
     bottom: 0;
     margin-bottom: 0; }
+    header#site-header .site-title-container .site-title .main-title {
+      font-weight: 600; }
+    header#site-header .site-title-container .site-title .sub-title {
+      font-family: "Franklin Gothic Book";
+      font-weight: 600; }
 
 @media only screen and (max-width: 40em) {
   header#site-header .logo-container, header#site-header .logo-container *, header#site-header .site-title-container, header#site-header .site-title-container * {
