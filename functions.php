@@ -47,6 +47,8 @@ add_action( 'after_setup_theme', function () {
 
     // Image sizes
     add_image_size( 'header-logo', 200, 350 );
+    
+    add_image_size( 'hero-image', false, 400 );
 
     // Add theme support
     require_once __DIR__ . '/includes/theme-support.php';

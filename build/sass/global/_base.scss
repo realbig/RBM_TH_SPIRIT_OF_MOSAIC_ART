@@ -57,3 +57,11 @@ img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" but
 .pagination {
     text-align: center;
 }
+
+.hero-image {
+
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    
+}

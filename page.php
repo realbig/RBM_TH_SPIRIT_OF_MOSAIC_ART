@@ -16,10 +16,13 @@ get_header();
 the_post();
 ?>
 
-<?php if ( has_post_thumbnail() ) : ?>
-<section class="page-header text-center">
-    <?php the_post_thumbnail( 'medium' ); ?>
-</section>
+<?php if ( has_post_thumbnail() ) :
+    $hero_image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'hero-image' );
+?>
+
+    <section class="hero-image" style="background-image: url( '<?php echo $hero_image[0];?>' ); height: <?php echo $hero_image[2]; ?>px;">
+    </section>
+
 <?php endif; ?>
 
 <section id="page-<?php the_ID(); ?>" <?php body_class( array( 'page-content' ) ); ?>>
