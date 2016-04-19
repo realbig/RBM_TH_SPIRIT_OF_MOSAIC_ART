@@ -65,6 +65,12 @@ img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" but
     background-repeat: no-repeat;
     text-align: center;
     
+    @media #{$small-only} {
+    
+        height: 150px !important;
+        
+    }
+    
     img {
         max-height: 100%;
         width: auto;
