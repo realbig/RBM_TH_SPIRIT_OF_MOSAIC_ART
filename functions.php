@@ -215,6 +215,18 @@ function soma_customize_register( $wp_customize ) {
         'active_callback' => 'is_front_page',
     ) ) );
     
+    $wp_customize->add_setting( 'soma_hero_background', array(
+            'default'     => 1,
+            'transport'   => 'refresh',
+        ) 
+    );
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'soma_hero_background', array(
+        'label'        => __( 'Header Image Background', THEME_ID ),
+        'section'    => 'soma_customizer_section',
+        'settings'   => 'soma_hero_background',
+        'mime_type' => 'image',
+    ) ) );
+    
     $wp_customize->add_setting( 'soma_phone_number' , array(
             'default'     => '(517) 867-5309',
             'transport'   => 'refresh',

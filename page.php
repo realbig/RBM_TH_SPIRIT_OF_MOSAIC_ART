@@ -17,10 +17,11 @@ the_post();
 ?>
 
 <?php if ( has_post_thumbnail() ) :
-    $hero_image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'hero-image' );
+    $hero_image_background = wp_get_attachment_image_src( get_theme_mod( 'soma_hero_background', 1 ) , 'hero-image' );
 ?>
 
-    <section class="hero-image" style="background-image: url( '<?php echo $hero_image[0];?>' ); height: <?php echo $hero_image[2]; ?>px;">
+    <section class="hero-image" style="background-image: url( '<?php echo $hero_image_background[0];?>' ); height: <?php echo $hero_image_background[2]; ?>px;">
+        <?php the_post_thumbnail( 'medium' ); ?>
     </section>
 
 <?php endif; ?>
