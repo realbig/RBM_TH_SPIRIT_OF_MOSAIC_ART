@@ -14,17 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 
 the_post();
-?>
 
-<?php if ( has_post_thumbnail() ) :
-    $hero_image_background = wp_get_attachment_image_src( get_theme_mod( 'soma_hero_background', 1 ) , 'hero-image' );
-?>
-
-    <section class="hero-image" style="background-image: url( '<?php echo $hero_image_background[0];?>' ); height: <?php echo $hero_image_background[2]; ?>px;">
-        <?php the_post_thumbnail( 'medium' ); ?>
-    </section>
-
-<?php endif; ?>
+include( locate_template( 'partials/page-featured-header.php' ) ); ?>
 
 <section id="page-<?php the_ID(); ?>" <?php body_class( array( 'page-content' ) ); ?>>
     <div class="row">

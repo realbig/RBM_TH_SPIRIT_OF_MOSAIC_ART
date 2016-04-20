@@ -3070,13 +3070,23 @@ img[class*=" wp-image-"] {
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  text-align: center; }
+  text-align: center;
+  position: relative; }
   @media screen and (min-width: 0em) and (max-width: 39.9375em) {
     .hero-image {
       height: 150px !important; } }
   .hero-image img {
     max-height: 100%;
-    width: auto; }
+    width: auto;
+    position: relative; }
+
+.color-overlay:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0; }
 
 /* Override Foundation's _settings.scss here, or store your own variables */
 /*
@@ -3342,7 +3352,7 @@ header#site-header .site-title-container {
       font-family: "Franklin Gothic Book";
       font-weight: 600; }
 
-@media only screen and (max-width: 40em) {
+@media screen and (min-width: 0em) and (max-width: 39.9375em) {
   header#site-header .logo-container, header#site-header .logo-container *, header#site-header .site-title-container, header#site-header .site-title-container * {
     text-align: center; }
   header#site-header .site-title-container {

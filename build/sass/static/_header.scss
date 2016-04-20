@@ -43,7 +43,7 @@ header#site-header {
         
     }
     
-    @media #{$screen} and ( max-width: 40em ) {
+    @media #{$small-only} {
         
         .logo-container, .site-title-container {
             

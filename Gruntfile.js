@@ -82,6 +82,8 @@ module.exports = function (grunt) {
                         'build/vendor/js/placeholder.js',
                         'build/vendor/js/jquery.cookie.js',
                         'build/vendor/js/realbig-slider.js',
+                        'build/vendor/js/jquery.getselector.js',
+                        'build/vendor/js/jquery.addrule.js',
                         'build/vendor/js/foundation/foundation.core.js',
                         'build/vendor/js/foundation/foundation.util.keyboard.js',
                         'build/vendor/js/foundation/foundation.util.box.js',

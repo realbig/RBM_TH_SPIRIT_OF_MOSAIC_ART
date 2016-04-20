@@ -64,6 +64,7 @@ img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" but
     background-position: 50% 50%;
     background-repeat: no-repeat;
     text-align: center;
+    position: relative;
     
     @media #{$small-only} {
     
@@ -74,6 +75,16 @@ img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" but
     img {
         max-height: 100%;
         width: auto;
+        position: relative;
     }
     
+}
+
+.color-overlay:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
