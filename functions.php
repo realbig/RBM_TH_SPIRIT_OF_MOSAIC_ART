@@ -227,17 +227,6 @@ function soma_customize_register( $wp_customize ) {
         'mime_type' => 'image',
     ) ) );
     
-    $wp_customize->add_setting( 'soma_phone_number' , array(
-            'default'     => '(517) 867-5309',
-            'transport'   => 'refresh',
-        ) 
-    );
-    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'soma_phone_number', array(
-        'label'        => __( 'Phone Number', THEME_ID ),
-        'section'    => 'soma_customizer_section',
-        'settings'   => 'soma_phone_number',
-    ) ) );
-    
     $wp_customize->add_setting( 'soma_footer_columns' , array(
             'default'     => 4,
             'transport'   => 'refresh',

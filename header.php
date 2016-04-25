@@ -91,12 +91,6 @@ if ( ! isset( $_SESSION ) ) {
                                 
                             </div>
                             
-                            <div class="row">
-                                <div class="small-12 columns text-center">
-                                    <h5><?php echo get_phone_number_link( get_theme_mod( 'soma_phone_number', '(517) 867-5309' ), '', true ); ?></h5>
-                                </div>
-                            </div>
-                            
                         </div>
                         
                     </div>
