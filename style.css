@@ -4087,6 +4087,8 @@ li.widget {
     vertical-align: middle; }
     .banner-section .media-object-section img {
       margin: 0; }
+    .banner-section .media-object-section p {
+      font-weight: 600; }
     .banner-section .media-object-section p:last-of-type {
       margin-bottom: 0; }
 /*# sourceMappingURL=style.css.map */
