@@ -81,7 +81,6 @@ module.exports = function (grunt) {
                         'build/vendor/js/fastclick.js',
                         'build/vendor/js/placeholder.js',
                         'build/vendor/js/jquery.cookie.js',
-                        'build/vendor/js/realbig-slider.js',
                         'build/vendor/js/jquery.getselector.js',
                         'build/vendor/js/jquery.addrule.js',
                         'build/vendor/js/foundation/foundation.core.js',
@@ -93,7 +92,9 @@ module.exports = function (grunt) {
                         'build/vendor/js/foundation/foundation.util.motion.js',
                         'build/vendor/js/foundation/foundation.dropdownMenu.js',
                         'build/vendor/js/foundation/foundation.offcanvas.js',
-                        'build/vendor/js/foundation/foundation.reveal.js',
+                        'build/vendor/js/foundation/foundation.orbit.js',
+                        'build/vendor/js/foundation/foundation.util.timerAndImageLoader.js',
+                        'build/vendor/js/foundation/foundation.util.touch.js',
                         // Included dynamically in header.php
                         '!build/vendor/js/html5.js',
 

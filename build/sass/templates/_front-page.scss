@@ -2,68 +2,63 @@
 @import "../settings";
 
 .home {
-    
-    #home-slider.realbig-slider-container {
 
-        .realbig-slider {
+    #home-slider.orbit {
+        
+        background-color: $primary-color;
+        padding-bottom: 0.1em;
+        
+        *:focus {
+            outline: none;
+        }
 
-            height: 300px;
-            padding-top: 0;
+        .orbit-slide {
             
-            .slide {
+            height: 100%;
+            
+            @include light-or-dark-text( $primary-color );
+            
+            .row {
+                
+                height: 100%;
                 
                 .columns {
+                    
                     height: 100%;
-                }
-                
-                .columns:first-of-type {
-                    border-right: 3px solid $primary-color;
-                }
-                
-                .columns.image {
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                    background-position: 50% 50%;
-                }
-                
-                .columns.text {
-                    padding: 30px;
+                    text-align: center;
+                    
+                    &:first-of-type {
+                        border-right: 3px solid $white;
+                    }
+                    
+                    &:before {
+                        content: ' ';
+                        display: inline-block;
+                        vertical-align: middle;
+                        height: 100%;
+                    }
+                    
+                    .vertical-align {
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+                    
                 }
                 
                 @media #{$small-only} {
                     
-                    padding: 15px;
-                    
-                    .columns {
-                    
-                        padding: 0;
+                    .columns.image {
+                        
+                        &:before {
+                            height: auto; // Our fancy vertical-align breaks on Mobile just for the image. No idea why.
+                        }
                         
                     }
                     
                 }
+                
+            }
             
-                h2 {
-                    margin-top: 1em;
-                }
-            
-                .button {
-                    margin-top: 2em;
-                }
-                
-            }
-        
-            .indicators {
-                bottom: -1.25em;
-            }
-        
-        @media #{$small-only} {
-                
-                .indicators {
-                    display: none;
-                }
-                
-            }
-
         }
 
     }

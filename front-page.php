@@ -18,65 +18,77 @@ the_post();
 
 <?php if ( have_rows( 'soma_slides' ) ) : ?>
 
-    <section id="home-slider" class="realbig-slider-container">
-        <div class="realbig-slider">
-
-            <div class="inner">
-
-                <?php
-                    $first = true;
-                    $index = 0;
-                    while ( have_rows( 'soma_slides' ) ) : the_row();
+    <div id="home-slider" class="orbit" role="region" aria-label="<?php _e( 'Home Slider', THEME_ID ); ?>" data-orbit>
+        
+        <ul class="orbit-container">
+            
+            <button class="orbit-previous"><span class="show-for-sr"><?php _e( 'Previous', THEME_ID ); ?></span>&#9664;&#xFE0E;</button>
+            <button class="orbit-next"><span class="show-for-sr"><?php _e( 'Next', THEME_ID ); ?></span>&#9654;&#xFE0E;</button>
+            
+            <?php
+            
+            $first = true;
+            $index = 0;
+            $indicators = ''; // Only doing this loop once
+            
+            while ( have_rows( 'soma_slides' ) ) : the_row();
                 
-                        $photo = get_sub_field( 'photo' );
-                        $url = get_sub_field( 'button_link' );
-                        // If the user forgot a protocol, we need to add it
-                        $has_http = preg_match_all( '/(http)?(s)?(:)?(\/\/)/', $url, $matches );
-                        if ( $has_http == 0 ) {
-                            $url = '//' . $url;
-                        }
+                $photo = get_sub_field( 'photo' );
+                $url = get_sub_field( 'button_link' );
+            
+            ?>
+            
+            <li class="<?php echo ( $first === true ) ? 'is-active ' : ''; ?>orbit-slide">
                 
-                        ?>
+                <div class="row">
+                    
+                    <?php if ( ( $index % 2 ) > 0 ) : ?>
 
-                        <div class="slide<?php echo ( ( $first === true ) ? ' active' : '' ); ?>">
-
-                            <?php if ( ( $index % 2 ) > 0 ) : ?>
-
-                            <div class="small-6 columns image" style="background-image: url( '<?php echo $photo['sizes']['medium']; ?> '); background-color: <?php echo get_sub_field( 'photo_background' ); ?>">
+                        <div class="small-6 columns image">
+                            <div class="vertical-align">
+                                <?php echo wp_get_attachment_image( $photo, 'medium' ); ?>
                             </div>
-
-                            <?php endif; ?>
-
-                            <div class="small-6 columns text">
-                                <<?php echo get_sub_field( 'descriptor_size' ); ?>><?php echo get_sub_field( 'descriptor' ); ?></<?php echo get_sub_field( 'descriptor_size' ); ?>>
-                                <a href="<?php echo $url; ?>" class="button"><?php echo get_sub_field( 'button_text' ); ?></a>
-                            </div>
-
-                            <?php if ( ( $index % 2 ) == 0 ) : ?>
-
-                            <div class="small-6 columns image" style="background-image: url( '<?php echo $photo['sizes']['medium']; ?> '); background-color: <?php echo get_sub_field( 'photo_background' ); ?>">
-                            </div>
-
-                            <?php endif; ?>
-
                         </div>
 
-                    <?php
-                        $first = false;
-                        $index++;
+                    <?php endif; ?>
+
+                        <div class="small-6 columns text">
+                            <div class="vertical-align">
+                                <<?php echo get_sub_field( 'descriptor_size' ); ?>><?php echo get_sub_field( 'descriptor' ); ?></<?php echo get_sub_field( 'descriptor_size' ); ?>>
+                                <a href="<?php echo $url; ?>" class="secondary button"><?php echo get_sub_field( 'button_text' ); ?></a>
+                            </div>
+                        </div>
+
+                    <?php if ( ( $index % 2 ) == 0 ) : ?>
+
+                        <div class="small-6 columns image">
+                            <div class="vertical-align">
+                                <?php echo wp_get_attachment_image( $photo, 'medium' ); ?>
+                            </div>
+                        </div>
+
+                    <?php endif; ?>
+                    
+                </div>
                 
-                    endwhile;
-                ?>
-
-            </div>
-
-            <div class="arrow arrow-left"></div>
-            <div class="arrow arrow-right"></div>
-
-            <ul class="indicators"></ul>
-
-        </div>
-    </section>
+            </li>
+            
+            <?php
+            
+                $indicators .= '<button ' . ( ( $first === true ) ? 'class="is-active" ' : '' ) . 'data-slide="' . $index . '"><span class="show-for-sr">' . sprintf( __( 'Slide %d', THEME_ID ), $index + 1 ) . '</span>' . ( ( $first === true ) ? '<span class="show-for-sr">' . __( 'Current Slide', THEME_ID ) . '</span>' : '' ) . '</button>';
+            
+                $first = false;
+                $index++;
+            
+            endwhile; ?>
+            
+        </ul>
+        
+        <nav class="orbit-bullets">
+            <?php echo $indicators; ?>
+        </nav>
+        
+    </div>
 
 <?php endif; ?>
 
@@ -106,7 +118,7 @@ the_post();
         <?php echo apply_filters( 'the_content', get_theme_mod( 'soma_accents_text', '' ) ); ?>
         
         <div class="text-center">
-            <a class="button" href="<?php echo get_theme_mod( 'soma_accents_link', '#' ); ?>"><?php echo get_theme_mod( 'soma_accents_button', 'Accents & Classes' ); ?></a>
+            <a class="secondary button" href="<?php echo get_theme_mod( 'soma_accents_link', '#' ); ?>"><?php echo get_theme_mod( 'soma_accents_button', 'Accents & Classes' ); ?></a>
         </div>
 
     </div>
@@ -122,7 +134,7 @@ the_post();
         <?php echo apply_filters( 'the_content', get_theme_mod( 'soma_gallery_text', '' ) ); ?>
         
         <div class="text-center">
-            <a class="button" href="<?php echo get_theme_mod( 'soma_gallery_link', '#' ); ?>"><?php echo get_theme_mod( 'soma_gallery_button', 'Gallery' ); ?></a>
+            <a class="secondary button" href="<?php echo get_theme_mod( 'soma_gallery_link', '#' ); ?>"><?php echo get_theme_mod( 'soma_gallery_button', 'Gallery' ); ?></a>
         </div>
 
     </div>

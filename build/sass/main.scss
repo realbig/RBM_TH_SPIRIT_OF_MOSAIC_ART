@@ -8,11 +8,13 @@ Version: 0.1.0
 
 // Vendor
 @import "../vendor/sass/normalize";
-@import "../vendor/sass/realbig-slider";
 
 // Dependencies
 @import "settings.scss";
 @import "functions.scss";
+
+// Motion-UI is a Node Module
+@import "../../node_modules/motion-ui/src/motion-ui";
 
 // Foundation
 // Here we control all the various Foundation components to use
@@ -29,19 +31,21 @@ Version: 0.1.0
 @include foundation-menu;
 @include foundation-menu-icon;
 @include foundation-off-canvas;
+@include foundation-orbit;
 @include foundation-dropdown;
 @include foundation-dropdown-menu;
 @include foundation-off-canvas;
 @include foundation-media-object;
 @include foundation-thumbnail;
 @include foundation-table;
+@include motion-ui-transitions;
+@include motion-ui-animations;
 
 // Global Styling
 @import "global/foundation-extend";
 @import "global/base";
 @import "global/wp";
 @import "global/fonts";
-@import "global/realbig-slider";
 @import "global/em-calendar";
 
 // Static

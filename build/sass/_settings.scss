@@ -7,6 +7,17 @@
 $dark-color: #333;
 $light-color: #fff;
 
+$primary-color: #64564E;
+$secondary-color: #B97046;
+
+$foundation-palette: (
+    primary: $primary-color,
+    secondary: $secondary-color,
+    success: $success-color,
+    warning: $warning-color,
+    alert: $alert-color,
+);
+
 $topbar-background: $black;
 
 @if lightness( $topbar-background ) < 50% {
@@ -28,6 +39,13 @@ $thumbnail-shadow: none;
 
 $header-font-family: 'Franklin Gothic Demi';
 $body-font-family: 'Franklin Gothic Book';
+
+$anchor-color: $primary-color;
+$anchor-color-hover: scale-color($anchor-color, $lightness: -25%);
+
+$orbit-bullet-background: $white;
+$orbit-bullet-background-active: $secondary-color;
+$orbit-bullet-diameter: 1rem;
 
 // Media query ranges
 $small-range: (0em, 40em);
