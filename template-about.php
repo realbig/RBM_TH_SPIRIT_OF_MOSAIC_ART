@@ -35,7 +35,7 @@ include( locate_template( 'partials/page-featured-header.php' ) ); ?>
                     }
                 ?>
                 
-                <a class="button" href="<?php echo $url; ?>"><?php the_field( 'about_button_text' ); ?></a>
+                <a class="secondary button" href="<?php echo $url; ?>"><?php the_field( 'about_button_text' ); ?></a>
             </div>
             
         </div>

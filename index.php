@@ -16,36 +16,39 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 ?>
 
-<section id="post-index" class="page-content">
-    <div class="row">
+<section id="post-index">
 
         <?php
-        if ( have_posts() ) : ?>
-        
-            <div class="small-12 columns">
-                <?php
-                while ( have_posts() ) :
-                    the_post();
-                    ?>
-                    <article <?php post_class(); ?>>
-
-                        <?php get_template_part( 'partials/' . get_post_type(), 'loop-single' ); ?>
-
-                    </article>
-                    <?php
-                endwhile;
+        if ( have_posts() ) : 
+            while ( have_posts() ) :
+                the_post();
                 ?>
+    <div class="blog-loop">
+        <div class="row">
+            <div class="small-12 columns">
+                <article <?php post_class(); ?>>
+
+                    <?php get_template_part( 'partials/' . get_post_type(), 'loop-single' ); ?>
+
+                </article>
             </div>
-        <?php
+        </div>
+    </div>
+                
+                <?php
+            endwhile;
         else:
         ?>
 
+    <div class="row">
         <div class="small-12 columns">
             Nothing found.
         </div>
+    </div>
 
         <?php endif; ?>
         
+    <div class="row">
         <div class="pagination">
             <?php 
             $post_type_object = get_post_type_object( get_post_type() );
@@ -56,9 +59,9 @@ get_header();
                 'next_text' => sprintf( __( 'View Newer %s &raquo;', THEME_ID ), $plural_label ),
             ) );
             ?>
-        </div>
-        
+        </div>    
     </div>
+    
 </section>
 
 <?php

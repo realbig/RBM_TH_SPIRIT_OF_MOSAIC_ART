@@ -1,0 +1,73 @@
+#post-index {
+    
+    .blog-loop {
+        
+        padding: 30px;
+
+        &:nth-child( odd ) {
+
+            background-color: $primary-color;
+            @include light-or-dark-text( $primary-color );
+            
+            @if lightness( $primary-color ) >= 50% {
+        
+                p {
+                    font-weight: 600;
+                }
+
+            }
+
+            a {
+                @include light-or-dark-text( $primary-color );
+
+                &:hover {
+                    
+                    @if lightness( $primary-color ) < 50% {
+
+                        color: scale-color( $light-color, $lightness: -25% );
+
+                    }
+                    @else {
+
+                        color: scale-color( $dark-color, $lightness: -25% );
+
+                    }
+                    
+                }
+            }
+
+        }
+
+        &:nth-child( even ) {
+
+            background-color: $light-gray;
+            @include light-or-dark-text( $light-gray );
+            
+            a {
+                @include light-or-dark-text( $light-gray );
+
+                &:hover {
+                    
+                    @if lightness( $light-gray ) < 50% {
+
+                        color: scale-color( $light-color, $lightness: -25% );
+
+                    }
+                    @else {
+
+                        color: scale-color( $dark-color, $lightness: -25% );
+
+                    }
+                    
+                }
+            }
+
+        }
+        
+    }
+
+    &.pagination {
+        text-align: center;
+    }
+
+}

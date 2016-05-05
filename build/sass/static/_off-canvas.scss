@@ -10,6 +10,7 @@
     
     min-height: 100vh;
     height: 100vh; 
+    background-color: lighten( $topbar-background, 30% );
 
     > .menu {
         
@@ -19,7 +20,7 @@
 
         > li {
 
-            background-color: darken( $topbar-background, 10% ); /* Top Level */
+            background-color: lighten( $topbar-background, 10% ); /* Top Level */
             
             a {
                 color: darken( $topbar-link-color, 15% ) !important;
