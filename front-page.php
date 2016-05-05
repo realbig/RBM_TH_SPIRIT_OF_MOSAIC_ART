@@ -36,6 +36,12 @@ the_post();
                 $photo = get_sub_field( 'photo' );
                 $url = get_sub_field( 'button_link' );
             
+                // If the user forgot a protocol, we need to add it
+                $has_http = preg_match_all( '/(http)?(s)?(:)?(\/\/)/', $url, $matches );
+                if ( $has_http == 0 ) {
+                    $url = '//' . $url;
+                }
+            
             ?>
             
             <li class="<?php echo ( $first === true ) ? 'is-active ' : ''; ?>orbit-slide">
