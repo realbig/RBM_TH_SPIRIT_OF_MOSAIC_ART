@@ -3747,6 +3747,28 @@ img[class*=" wp-image-"] {
   bottom: 0;
   right: 0; }
 
+input[type="submit"] {
+  display: inline-block;
+  text-align: center;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -webkit-transition: background-color 0.25s ease-out, color 0.25s ease-out;
+          transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  border-radius: 0;
+  padding: 0.85em 1em;
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+  background-color: #B97046;
+  color: #fff; }
+  [data-whatinput='mouse'] input[type="submit"] {
+    outline: 0; }
+  input[type="submit"]:hover, input[type="submit"]:focus {
+    background-color: #945a38;
+    color: #fff; }
+
 /* Override Foundation's _settings.scss here, or store your own variables */
 /*
 This provides overrides for some WP stuff (not much at all).

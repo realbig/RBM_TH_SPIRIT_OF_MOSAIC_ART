@@ -88,3 +88,13 @@ img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" but
     bottom: 0;
     right: 0;
 }
+
+input[type="submit"] {
+    
+    $input-button-color: $secondary-color;
+    $input-button-hover: scale-color( $input-button-color, $lightness: -15% );
+    $input-button-hover-border: scale-color( $input-button-hover, $lightness: -15% );
+    
+    @include button( $expand: false, $background: $input-button-color, $background-hover: auto, $color: $button-color, $style: $button-fill );
+    
+}
